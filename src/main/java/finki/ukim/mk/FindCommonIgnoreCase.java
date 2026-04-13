@@ -2,7 +2,7 @@ package finki.ukim.mk;
 
 import java.util.*;
 
-public class Main {
+public class FindCommonIgnoreCase {
 
 /**
  * Given two lists of strings, return a list of all unique strings that appear in both lists,

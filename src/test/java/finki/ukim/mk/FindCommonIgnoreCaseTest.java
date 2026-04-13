@@ -16,7 +16,7 @@ public class FindCommonIgnoreCaseTest {
         List<String> list1 = Arrays.asList("Apple", "banana", "Cherry", "apple");
         List<String> list2 = Arrays.asList("BANANA", "cherry", "Durian");
 
-        List<String> result = Main.findCommonIgnoreCase(list1, list2);
+        List<String> result = FindCommonIgnoreCase.findCommonIgnoreCase(list1, list2);
 
         assertEquals(Arrays.asList("banana", "Cherry"), result);
     }
@@ -28,7 +28,7 @@ public class FindCommonIgnoreCaseTest {
         List<String> list1 = Arrays.asList("banana");
         List<String> list2 = Arrays.asList("BANANA", "cherry", "Durian");
 
-        List<String> result = Main.findCommonIgnoreCase(list1, list2);
+        List<String> result = FindCommonIgnoreCase.findCommonIgnoreCase(list1, list2);
 
         assertEquals(Arrays.asList("banana"), result);
     }
@@ -40,7 +40,7 @@ public class FindCommonIgnoreCaseTest {
         List<String> list1 = Arrays.asList("Apple", "banana", "Cherry", "apple");
         List<String> list2 = Arrays.asList("BANANA");
 
-        List<String> result = Main.findCommonIgnoreCase(list1, list2);
+        List<String> result = FindCommonIgnoreCase.findCommonIgnoreCase(list1, list2);
 
         assertEquals(Arrays.asList("banana"), result);
     }
@@ -52,7 +52,7 @@ public class FindCommonIgnoreCaseTest {
         List<String> list1 = Arrays.asList("Apple", "Pear", "Watermelon");
         List<String> list2 = Arrays.asList("BANANA", "cherry", "Durian");
 
-        List<String> result = Main.findCommonIgnoreCase(list1, list2);
+        List<String> result = FindCommonIgnoreCase.findCommonIgnoreCase(list1, list2);
 
         assertTrue(result.isEmpty());
     }
@@ -64,7 +64,7 @@ public class FindCommonIgnoreCaseTest {
         List<String> list1 = Arrays.asList("Apple", "Pear", "Watermelon");
         List<String> list2 = Arrays.asList("BANANA", "cherry", "apple");
 
-        List<String> result = Main.findCommonIgnoreCase(list1, list2);
+        List<String> result = FindCommonIgnoreCase.findCommonIgnoreCase(list1, list2);
 
         assertEquals(Arrays.asList("Apple"), result);
     }

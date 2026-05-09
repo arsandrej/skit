@@ -1,4 +1,4 @@
-package finki.ukim.mk;
+package finki.ukim.mk.lab1;
 
 import org.junit.jupiter.api.Test;
 

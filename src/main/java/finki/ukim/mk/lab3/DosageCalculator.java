@@ -1,4 +1,4 @@
-package finki.ukim.mk;
+package finki.ukim.mk.lab3;
 
 public class DosageCalculator {
     public static double calculateDosage(int age, double weight,

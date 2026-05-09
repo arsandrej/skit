@@ -1,4 +1,4 @@
-package finki.ukim.mk;
+package finki.ukim.mk.lab2;
 
 public class TemperatureAnalyzer {
     /**

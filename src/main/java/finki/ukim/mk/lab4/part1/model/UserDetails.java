@@ -6,14 +6,15 @@ public class UserDetails {
     private String status;
     private String username;
     private String password;
+    private String confirmPassword;
 
-    public UserDetails(String userRole, String employeeNamePartial, String status,
-                       String username, String password) {
+    public UserDetails(String userRole, String employeeNamePartial, String status, String username, String password, String confirmPassword) {
         this.userRole = userRole;
         this.employeeNamePartial = employeeNamePartial;
         this.status = status;
         this.username = username;
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getUserRole() {
@@ -34,5 +35,9 @@ public class UserDetails {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 }

@@ -41,9 +41,7 @@ class CourseServiceTest {
 
             List<Course> result = courseService.findActiveCourses();
 
-            assertThat(result)
-                    .hasSize(2)
-                    .containsExactly(activeCourse1, activeCourse2);
+            assertThat(result).hasSize(2).containsExactly(activeCourse1, activeCourse2);
             verify(courseRepository).findAll();
         }
 
@@ -106,9 +104,7 @@ class CourseServiceTest {
             Long id = 99L;
             when(courseRepository.findById(id)).thenReturn(Optional.empty());
 
-            assertThatThrownBy(() -> courseService.findById(id))
-                    .isInstanceOf(RuntimeException.class)
-                    .hasMessage("Course not found");
+            assertThatThrownBy(() -> courseService.findById(id)).isInstanceOf(RuntimeException.class).hasMessage("Course not found");
 
             verify(courseRepository).findById(id);
         }
@@ -143,9 +139,7 @@ class CourseServiceTest {
         @Test
         @DisplayName("should throw IllegalArgumentException when name is null")
         void shouldThrowExceptionWhenNameIsNull() {
-            assertThatThrownBy(() -> courseService.createCourse(null, 3))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("Course name is required");
+            assertThatThrownBy(() -> courseService.createCourse(null, 3)).isInstanceOf(IllegalArgumentException.class).hasMessage("Course name is required");
 
             verifyNoInteractions(courseRepository);
         }
@@ -153,9 +147,7 @@ class CourseServiceTest {
         @Test
         @DisplayName("should throw IllegalArgumentException when name is blank")
         void shouldThrowExceptionWhenNameIsBlank() {
-            assertThatThrownBy(() -> courseService.createCourse("   ", 3))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("Course name is required");
+            assertThatThrownBy(() -> courseService.createCourse("   ", 3)).isInstanceOf(IllegalArgumentException.class).hasMessage("Course name is required");
 
             verifyNoInteractions(courseRepository);
         }
@@ -163,9 +155,7 @@ class CourseServiceTest {
         @Test
         @DisplayName("should throw IllegalArgumentException when credits is zero")
         void shouldThrowExceptionWhenCreditsIsZero() {
-            assertThatThrownBy(() -> courseService.createCourse("Math", 0))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("Credits must be positive");
+            assertThatThrownBy(() -> courseService.createCourse("Math", 0)).isInstanceOf(IllegalArgumentException.class).hasMessage("Credits must be positive");
 
             verifyNoInteractions(courseRepository);
         }
@@ -173,9 +163,7 @@ class CourseServiceTest {
         @Test
         @DisplayName("should throw IllegalArgumentException when credits is negative")
         void shouldThrowExceptionWhenCreditsIsNegative() {
-            assertThatThrownBy(() -> courseService.createCourse("Math", -1))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("Credits must be positive");
+            assertThatThrownBy(() -> courseService.createCourse("Math", -1)).isInstanceOf(IllegalArgumentException.class).hasMessage("Credits must be positive");
 
             verifyNoInteractions(courseRepository);
         }
@@ -204,9 +192,7 @@ class CourseServiceTest {
             Long id = 1L;
             when(courseRepository.findById(id)).thenReturn(Optional.empty());
 
-            assertThatThrownBy(() -> courseService.deleteCourse(id))
-                    .isInstanceOf(RuntimeException.class)
-                    .hasMessage("Course not found");
+            assertThatThrownBy(() -> courseService.deleteCourse(id)).isInstanceOf(RuntimeException.class).hasMessage("Course not found");
 
             verify(courseRepository).findById(id);
             verify(courseRepository, never()).deleteById(any());

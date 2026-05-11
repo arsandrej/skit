@@ -19,20 +19,15 @@ public class DashboardPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public UserManagementPage navigateToUserManagement() {
+    public UserListPage navigateToUserManagement() {                       // changed return type
         wait.until(ExpectedConditions.elementToBeClickable(adminMenu)).click();
-        // Wait for Add button to appear – indicates user list page loaded
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//button[contains(@class,'oxd-button--secondary')]//i[contains(@class,'bi-plus')]")));
-        return new UserManagementPage(driver);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(@class,'oxd-button--secondary')]//i[contains(@class,'bi-plus')]")));
+        return new UserListPage(driver);                                   // new
     }
+
     public String getLoggedInUserFirstName() {
-        // Wait for the dropdown name to be visible
-        WebElement nameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.className("oxd-userdropdown-name")
-        ));
+        WebElement nameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("oxd-userdropdown-name")));
         String fullName = nameElement.getText().trim();
-        // Take only the first part (e.g., "Andrej" from "Andrej Arsovski")
         return fullName.split("\\s+")[0];
     }
 }

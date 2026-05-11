@@ -11,15 +11,11 @@ public class CourseService {
     }
 
     public List<Course> findActiveCourses() {
-        return courseRepository.findAll()
-                .stream()
-                .filter(Course::isActive)
-                .toList();
+        return courseRepository.findAll().stream().filter(Course::isActive).toList();
     }
 
     public Course findById(Long id) {
-        return courseRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Course not found"));
+        return courseRepository.findById(id).orElseThrow(() -> new RuntimeException("Course not found"));
     }
 
     public Course createCourse(String name, int credits) {
